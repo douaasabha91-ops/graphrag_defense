@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: >-
+  Bounding Structured-Data Extraction in Graph RAG with
+  Differential Privacy
+message: If you use this code, please cite the paper.
+type: software
+authors:
+  - given-names: Douaa
+    family-names: Sabha
+  - given-names: Abdessamad
+    family-names: Imine
+  - given-names: Hassan
+    family-names: Harb
+  - given-names: Mohamed
+    family-names: Dbouk
+year: 2026

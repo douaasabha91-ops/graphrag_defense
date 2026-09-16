@@ -1,0 +1,6 @@
+condition,cum entity exp (%),targeted hits,served/query
+dp_budget,2.8 $\pm$ 0.3,1.8 $\pm$ 0.8,1.2
+none,24.4 $\pm$ 0.1,32.0 $\pm$ 0.0,30.0
+sysprompt,22.6 $\pm$ 0.3,32.0 $\pm$ 0.0,30.0
+threshold,24.2 $\pm$ 0.2,32.0 $\pm$ 0.0,29.8
+topk_nodp,16.2 $\pm$ 0.2,32.0 $\pm$ 0.0,10.0

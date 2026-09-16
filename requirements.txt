@@ -1,0 +1,17 @@
+# Core
+numpy>=1.24
+networkx>=3.0
+pandas>=2.0
+requests>=2.31
+rouge-score>=0.1.2
+
+# Data
+datasets>=2.14
+
+# Notebooks
+nest_asyncio>=1.5
+
+# Models are served locally with Ollama (installed separately, not via pip):
+#   curl -fsSL https://ollama.com/install.sh | sh
+#   ollama pull qwen2.5:7b
+#   ollama pull nomic-embed-text
