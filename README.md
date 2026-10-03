@@ -30,7 +30,6 @@ cumulative privacy loss is bounded.
 | No defense | 24.4% | 32 | 0.134 |
 | System prompt | 22.6% | 32 | 0.140 |
 | Similarity threshold | 24.2% | 32 | 0.133 |
-| Summarization | n/a (serves prose) | 28 | 0.127 |
 | **Matched-volume (top-10, no DP)** | 16.2% | 32 | — |
 | **DP budget (B=10)** | **2.8% ± 0.3** | **1.8 ± 0.8** | **0.126** |
 
@@ -82,7 +81,8 @@ baseline share one runner, so all conditions are compared on identical retrieval
 
 - **Stage 1 (formal):** differentially private top-*k* selection over entities and over
   relationships, by report-noisy-max / exponential-mechanism peeling, with per-item score
-  sensitivity 1 on clipped scores. Edge-level (ε, δ)-DP on a fixed candidate universe.
+  sensitivity 1 on clipped scores. Pure ε-DP (δ = 0) at the item level, conditional on the
+  retrieved candidate set R(q); the retrieval step that forms R(q) is outside the guarantee.
 - **Stage 2 (empirical, optional):** Laplace perturbation of numeric attributes in
   descriptions; excluded from the formal guarantee.
 - **Per-user budget:** the `Session` object composes the privacy cost across queries; once the
@@ -146,8 +146,9 @@ interrupted session continues without losing work.
 - **Cumulative exposure is the headline metric.** The per-query leakage percentage is
   denominator-sensitive: a defense serving fewer items can show a *higher* per-query
   percentage while leaking far less overall. Read cumulative unique exposure.
-- The formal guarantee is **edge-level**, on a fixed candidate universe; the node-level and
-  private-universe cases are scoped explicitly in the paper.
+- The formal guarantee is **item-level, pure ε-DP (δ = 0), conditional on the retrieved
+  candidate set**; it does not cover how retrieval forms that set. This matches the thesis;
+  extending the guarantee to the retrieval step is future work.
 - Stage 2 (description perturbation) is an optional empirical component, not part of the formal
   guarantee.
 - This is a single-model, small-graph, 40-query study. It reports relative comparisons on one
